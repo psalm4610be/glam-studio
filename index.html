@@ -1,109 +1,399 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Glam Studio</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Glam Studio • Support & Legal</title>
+  <style>
+    :root {
+      --bg: #f7f4f6;
+      --card: rgba(255, 255, 255, 0.88);
+      --text: #1f2430;
+      --muted: #6f7480;
+      --accent: #de86a7;
+      --accent-soft: #f7dbe6;
+      --line: rgba(31, 36, 48, 0.08);
+      --shadow: 0 14px 36px rgba(31, 36, 48, 0.08);
+      --radius-xl: 28px;
+      --radius-lg: 22px;
+    }
 
-<style>
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif;
-  background: #f7f5f6;
-  color: #1f1f1f;
-}
+    * {
+      box-sizing: border-box;
+    }
 
-.container {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 40px 20px;
-}
+    html {
+      scroll-behavior: smooth;
+    }
 
-h1 {
-  font-size: 28px;
-  margin-bottom: 10px;
-}
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at top, rgba(244, 221, 230, 0.55), transparent 32%),
+        linear-gradient(180deg, #fbf9fa 0%, var(--bg) 100%);
+      color: var(--text);
+      line-height: 1.65;
+    }
 
-p {
-  color: #555;
-}
+    .wrap {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 32px 20px 64px;
+    }
 
-.card {
-  background: white;
-  border-radius: 20px;
-  padding: 24px;
-  margin-bottom: 20px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-}
+    .hero {
+      background: linear-gradient(180deg, rgba(255,255,255,0.9), rgba(255,255,255,0.74));
+      border: 1px solid rgba(255,255,255,0.85);
+      box-shadow: var(--shadow);
+      border-radius: 34px;
+      padding: 40px 28px 28px;
+      margin-bottom: 24px;
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+    }
 
-.header {
-  text-align: center;
-  margin-bottom: 30px;
-}
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(222, 134, 167, 0.12);
+      color: var(--accent);
+      font-weight: 600;
+      font-size: 14px;
+      margin-bottom: 16px;
+    }
 
-.nav {
-  display: flex;
-  gap: 10px;
-  justify-content: center;
-  margin-bottom: 30px;
-}
+    h1 {
+      margin: 0 0 10px;
+      font-size: clamp(36px, 5vw, 58px);
+      line-height: 1.02;
+      letter-spacing: -0.03em;
+    }
 
-.nav a {
-  text-decoration: none;
-  padding: 10px 16px;
-  border-radius: 14px;
-  background: #fff;
-  color: #d69bb3;
-  font-weight: 500;
-  border: 1px solid #f1dbe4;
-}
+    .subtitle {
+      margin: 0;
+      max-width: 760px;
+      color: var(--muted);
+      font-size: 18px;
+    }
 
-.nav a:hover {
-  background: #ffeef5;
-}
+    .nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 24px;
+    }
 
-</style>
+    .nav a {
+      text-decoration: none;
+      color: var(--accent);
+      background: rgba(255,255,255,0.92);
+      border: 1px solid rgba(222, 134, 167, 0.18);
+      border-radius: 16px;
+      padding: 12px 16px;
+      font-weight: 600;
+      transition: 0.18s ease;
+      box-shadow: 0 8px 18px rgba(31, 36, 48, 0.04);
+    }
+
+    .nav a:hover {
+      transform: translateY(-1px);
+      background: #fff7fa;
+    }
+
+    .grid {
+      display: grid;
+      gap: 20px;
+    }
+
+    .card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.95), rgba(255,255,255,0.82));
+      border: 1px solid rgba(255,255,255,0.92);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow);
+      padding: 28px;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+
+    .card h2 {
+      margin: 0 0 14px;
+      font-size: clamp(28px, 3vw, 40px);
+      line-height: 1.08;
+      letter-spacing: -0.025em;
+    }
+
+    .card h3 {
+      margin: 22px 0 8px;
+      font-size: 18px;
+      letter-spacing: -0.01em;
+    }
+
+    .card p,
+    .card li {
+      color: #555b66;
+      font-size: 17px;
+    }
+
+    .card ul {
+      margin: 10px 0 0;
+      padding-left: 20px;
+    }
+
+    .meta-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .mini {
+      background: rgba(247, 244, 246, 0.9);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      padding: 18px 18px;
+    }
+
+    .mini .label {
+      display: block;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 6px;
+    }
+
+    .mini .value {
+      font-size: 17px;
+      color: var(--text);
+      font-weight: 700;
+      word-break: break-word;
+    }
+
+    .accent-box {
+      margin-top: 18px;
+      padding: 18px 18px;
+      border-radius: 22px;
+      background: linear-gradient(180deg, rgba(222,134,167,0.13), rgba(222,134,167,0.08));
+      border: 1px solid rgba(222,134,167,0.16);
+    }
+
+    .accent-box strong {
+      color: var(--accent);
+    }
+
+    .footer {
+      margin-top: 28px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .email {
+      color: var(--accent);
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .email:hover {
+      text-decoration: underline;
+    }
+
+    .divider {
+      height: 1px;
+      background: var(--line);
+      margin: 18px 0;
+      border: 0;
+    }
+
+    @media (max-width: 700px) {
+      .wrap {
+        padding: 18px 14px 44px;
+      }
+
+      .hero,
+      .card {
+        padding: 22px 18px;
+        border-radius: 24px;
+      }
+
+      .meta-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .subtitle {
+        font-size: 16px;
+      }
+
+      .nav a {
+        width: 100%;
+        text-align: center;
+      }
+    }
+  </style>
 </head>
-
 <body>
+  <div class="wrap">
+    <section class="hero">
+      <div class="eyebrow">Glam Studio • Support & Legal</div>
+      <h1>Clear, simple, and transparent.</h1>
+      <p class="subtitle">
+        This page explains how Glam Studio handles your data, what features the app uses,
+        how backups work, and how to contact support.
+      </p>
 
-<div class="container">
+      <nav class="nav">
+        <a href="#privacy">Privacy Policy</a>
+        <a href="#terms">Terms of Use</a>
+        <a href="#support">Support</a>
+      </nav>
+    </section>
 
-<div class="header">
-  <h1>Glam Studio</h1>
-  <p>Support & Legal Information</p>
-</div>
+    <div class="grid">
+      <section id="privacy" class="card">
+        <h2>Privacy Policy</h2>
+        <p>
+          Glam Studio is designed to be a privacy-focused business app. We do not collect,
+          sell, or share your personal data with third parties.
+        </p>
 
-<div class="nav">
-  <a href="#privacy">Privacy</a>
-  <a href="#terms">Terms</a>
-  <a href="#support">Support</a>
-</div>
+        <div class="meta-grid">
+          <div class="mini">
+            <span class="label">Data storage</span>
+            <span class="value">Stored locally on your device</span>
+          </div>
+          <div class="mini">
+            <span class="label">Server sync</span>
+            <span class="value">No server sync used</span>
+          </div>
+          <div class="mini">
+            <span class="label">Tracking</span>
+            <span class="value">No analytics or ad tracking</span>
+          </div>
+          <div class="mini">
+            <span class="label">Backups</span>
+            <span class="value">Saved only to the location you choose</span>
+          </div>
+        </div>
 
-<div id="privacy" class="card">
-  <h1>Privacy Policy</h1>
-  <p>Glam Studio does not collect, store, or share any personal data.</p>
-  <p>All data, including clients, projects, and financial information, is stored locally on your device.</p>
-  <p>No data is transmitted to any server.</p>
-  <p>Backups are stored only in the location you choose (iCloud or On My iPhone).</p>
-</div>
+        <h3>What information the app stores</h3>
+        <p>
+          Glam Studio may store information you manually add into the app, including client
+          records, appointments, project details, message templates, service packages,
+          expenses, receipts, notes, and reminder settings.
+        </p>
 
-<div id="terms" class="card">
-  <h1>Terms of Use</h1>
-  <p>By using Glam Studio, you agree to use the app responsibly.</p>
-  <p>The app is provided as-is without warranties.</p>
-  <p>You are responsible for maintaining backups of your data.</p>
-  <p>Subscriptions renew automatically unless canceled.</p>
-</div>
+        <h3>Where your data lives</h3>
+        <p>
+          All app data is stored locally on your device. If you create a backup, that backup
+          is saved only in the place you explicitly choose, such as iCloud Drive or On My iPhone.
+        </p>
 
-<div id="support" class="card">
-  <h1>Support</h1>
-  <p>If you need help, contact us:</p>
-  <p><strong>Email:</strong> illiabitkov@gmail.com</p>
-  <p>We usually respond within 24–48 hours.</p>
-</div>
+        <h3>What the app does not do</h3>
+        <ul>
+          <li>It does not upload your business data to our servers.</li>
+          <li>It does not sell or share your personal information.</li>
+          <li>It does not use third-party advertising or hidden analytics tools.</li>
+        </ul>
 
-</div>
+        <h3>Permissions</h3>
+        <p>
+          Some features may request permission only when needed:
+        </p>
+        <ul>
+          <li><strong>Contacts</strong> to import clients from your address book.</li>
+          <li><strong>Notifications</strong> to send reminders for appointments and backups.</li>
+          <li><strong>Photos</strong> to attach receipts or images to your records.</li>
+          <li><strong>Files</strong> to import or export backups and documents you choose.</li>
+        </ul>
 
+        <div class="accent-box">
+          <strong>In short:</strong> Glam Studio is built to help manage your business while
+          keeping your data under your control.
+        </div>
+      </section>
+
+      <section id="terms" class="card">
+        <h2>Terms of Use</h2>
+        <p>
+          By using Glam Studio, you agree to use the app responsibly and understand that you
+          remain in control of the data you create and store inside it.
+        </p>
+
+        <h3>App usage</h3>
+        <ul>
+          <li>You may use Glam Studio to manage clients, appointments, projects, services, reminders, and business records.</li>
+          <li>You are responsible for reviewing, editing, and maintaining the accuracy of the information you enter.</li>
+          <li>You are responsible for creating backups if you want to protect your data from accidental loss.</li>
+        </ul>
+
+        <h3>No warranty</h3>
+        <p>
+          Glam Studio is provided on an “as is” basis without warranties of any kind, to the
+          maximum extent permitted by law.
+        </p>
+
+        <h3>Backups and responsibility</h3>
+        <p>
+          The app includes local backup options, but you remain responsible for saving and keeping
+          copies of your backup files in a location you trust.
+        </p>
+
+        <h3>Subscriptions</h3>
+        <p>
+          If Glam Studio offers a subscription, it will automatically renew unless canceled at
+          least 24 hours before the end of the current billing period. Subscriptions can be managed
+          in your Apple ID account settings.
+        </p>
+
+        <div class="accent-box">
+          <strong>Important:</strong> Using the app means you accept responsibility for your own
+          business records, exported files, and backup decisions.
+        </div>
+      </section>
+
+      <section id="support" class="card">
+        <h2>Support</h2>
+        <p>
+          If you need help with Glam Studio, contact support using the email below.
+        </p>
+
+        <div class="meta-grid">
+          <div class="mini">
+            <span class="label">Support email</span>
+            <span class="value">
+              <a class="email" href="mailto:bitkovph@gmail.com">bitkovph@gmail.com</a>
+            </span>
+          </div>
+          <div class="mini">
+            <span class="label">Typical response time</span>
+            <span class="value">24–48 hours</span>
+          </div>
+        </div>
+
+        <h3>What to include in your message</h3>
+        <ul>
+          <li>Your device model and iOS version</li>
+          <li>The app version you are using</li>
+          <li>A short explanation of the issue</li>
+          <li>Screenshots if they help explain the problem</li>
+        </ul>
+
+        <h3>Support scope</h3>
+        <p>
+          Support may help with app behavior, backups, restore flow, reminders, import issues,
+          and general troubleshooting.
+        </p>
+      </section>
+    </div>
+
+    <div class="footer">
+      Glam Studio • Support & Legal
+    </div>
+  </div>
 </body>
 </html>
